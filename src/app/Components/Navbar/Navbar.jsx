@@ -59,7 +59,7 @@ const Navbar = () => {
         }
     }, [state?.lastScrollY])
 
-    console.log('filterData', filterData)
+    // console.log('filterData', filterData)
     return (
         <>
             <header className={`w-full h-[50px] md:h-[80px] bg-[#ffffff]  flex items-center justify-between z-20 sticky top-0 transition-transform duration-300 ${state.show} border border-gray-200`}>
