@@ -115,7 +115,7 @@ const Navbar = () => {
                                     width={100}
                                     height={100}
                                 />
-                                {d?.name}
+                                {d?.name} X
                             </div>
                         ))
                     }
