@@ -107,7 +107,7 @@ const Navbar = () => {
                 <section className='flex gap-3 mt-4 overflow-scroll '>
                     {
                         filterData?.map((d, i) => (
-                            <div key={i} className='flex flex-col bg-purple-400 justify-center'>
+                            <div key={i} className='flex flex-col bg-purple-200 justify-center'>
                                 <Image
                                     src={d?.icon?.src}
                                     className='w-[30px] md:w-[40px]'
@@ -115,7 +115,7 @@ const Navbar = () => {
                                     width={100}
                                     height={100}
                                 />
-                                {d?.name}
+                                {d?.name} X
                             </div>
                         ))
                     }
