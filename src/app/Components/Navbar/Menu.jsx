@@ -1,11 +1,12 @@
 import React from 'react'
 import { FiSearch } from "react-icons/fi";
 
-const Menu = () => {
+const Menu = ({ handleSearch }) => {
+
     return (
         <section className='hidden lg:flex items-center justify-between  shadow  rounded-full px-[15px] border'>
             <main className='cursor-pointer text-black font-small  px-4'>
-                <p className='font-bold'>
+                <p className='font-bold' onClick={() => handleSearch()}>
                     Anywhere
                 </p>
             </main>

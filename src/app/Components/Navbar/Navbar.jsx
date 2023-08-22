@@ -8,29 +8,33 @@ import Menu from './Menu';
 import { FiGlobe } from "react-icons/fi";
 import { TbMenu2 } from "react-icons/tb";
 import { RiAccountCircleFill } from "react-icons/ri";
+import SearchTabs from './SearchTabs';
 
 
 const Navbar = () => {
     const [state, setState] = useState({
         show: "translate-y-0",
         lastScrollY: 0,
+
+        openSearchBar: false,
+        activeIndex: 1
     })
 
     const controlNavbar = () => {
         if (window.scrollY > 200) {
             if (window.scrollY > state?.lastScrollY && !state?.mobileMenu) {
-
                 setState((prev) => {
                     return {
                         ...prev,
-                        show: "-translate-y-[80px]"
+                        show: "-translate-y-[80px]",
+                        openSearchBar: false
                     }
                 })
             } else {
                 setState((prev) => {
                     return {
                         ...prev,
-                        show: "shadow-sm"
+                        show: "shadow-sm",
                     }
                 })
             }
@@ -39,7 +43,7 @@ const Navbar = () => {
             setState((prev) => {
                 return {
                     ...prev,
-                    show: "translate-y-0"
+                    show: "translate-y-0",
                 }
             })
         }
@@ -47,7 +51,8 @@ const Navbar = () => {
         setState((prev) => {
             return {
                 ...prev,
-                lastScrollY: window.scrollY
+                lastScrollY: window.scrollY,
+                // openSearchBar: window.scrollY > 100 ? false : state?.openSearchBar
             }
         })
     }
@@ -59,9 +64,28 @@ const Navbar = () => {
         }
     }, [state?.lastScrollY])
 
+    const handleSearch = () => {
+        setState((prev) => {
+            return {
+                ...prev,
+                openSearchBar: !state.openSearchBar
+            }
+        })
+    }
+
+    const handleTabs = (data) => {
+        setState((prev) => {
+            return {
+                ...prev,
+                activeIndex: data
+            }
+        })
+    }
+
+    const { activeIndex } = state;
     return (
-        <>
-            <header className={`w-full h-[50px] md:h-[80px] bg-[#ffffff]  flex items-center justify-between z-20 sticky top-0 transition-transform duration-300 ${state.show} border border-gray-200`}>
+        <nav className='relative'>
+            <header className={`w-full h-[50px] md:h-[80px] bg-[#ffffff]  flex items-center justify-between z-20 sticky top-0 transition-transform duration-300 ${state.show}  ${!state.openSearchBar && "border border-gray-200"}`}>
                 <Wrapper className='h-[60px] grid grid-cols-3 gap-3'>
                     {/* logo starts */}
                     <section className='flex items-center'>
@@ -79,7 +103,11 @@ const Navbar = () => {
                     {/* logo ends */}
 
                     {/* middle menu start */}
-                    <Menu />
+                    {
+                        state?.openSearchBar ? <SearchTabs handleTabs={handleTabs} activeIndex={activeIndex} /> :
+                            <Menu handleSearch={handleSearch} />
+
+                    }
                     {/* middle menu ends */}
 
                     {/* right menu start */}
@@ -102,8 +130,28 @@ const Navbar = () => {
                     {/* right menu ends */}
                 </Wrapper>
             </header>
+            {
+                // state?.openSearchBar &&
+                // <div className='w-full h-[50px] md:h-[80px] bg-[#ffffff] flex items-center justify-center border-b-2 border-gray-200' onClick={() => handleSearch()}> 
+                //     hede 
+                // </div>
+                state?.openSearchBar &&
+                <div className='w-full h-[50px] md:h-[80px] bg-[#ffffff] absolute z-20 flex items-center justify-center' onClick={() => handleSearch()}>
+                    <section>
+                        {
+                            activeIndex === 1 && <div> hello one </div>
+                        }
+                        {
+                            activeIndex === 2 && <div> hello two </div>
+                        }
+                        {
+                            activeIndex === 3 && <div> hello three </div>
+                        }
 
-        </>
+                    </section>
+                </div>
+            }
+        </nav>
     )
 }
 

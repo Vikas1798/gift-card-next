@@ -15,7 +15,6 @@ const HotelLists = () => {
                         <section key={i}>
                             <HotelCard data={d} keyId={i} />
                         </section>
-
                     ))
                 }
             </main>
