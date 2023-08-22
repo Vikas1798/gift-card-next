@@ -4,9 +4,9 @@ import { BsFillStarFill } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
 // import Link from 'next/link';
 
-const HotelCard = ({ data, key }) => {
+const HotelCard = ({ data, keyId }) => {
     return (
-        <section key={key} className='w-full relative cursor-pointer group'>
+        <section key={keyId} className='w-full relative cursor-pointer group'>
             <Image
                 src={data?.image}
                 className='w-full rounded-2xl h-[250px] object-cover'

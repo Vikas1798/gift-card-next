@@ -12,7 +12,10 @@ const HotelLists = () => {
             <main className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6'>
                 {
                     hotelsData.map((d, i) => (
-                        <HotelCard data={d} key={i} />
+                        <section key={i}>
+                            <HotelCard data={d} keyId={i} />
+                        </section>
+
                     ))
                 }
             </main>
