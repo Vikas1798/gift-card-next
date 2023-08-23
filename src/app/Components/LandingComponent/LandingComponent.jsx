@@ -24,6 +24,17 @@ const LandingComponent = () => {
                     ))
                 }
             </section> */}
+            <section className='border border-gray-200 p-4 w-1/2 mx-auto my-4 rounded-xl'>
+                <main className='flex items-center justify-between'>
+                    <div className=' flex items-center'>
+                        <h4 className='border-r-2 pr-3 font-bold'> Display total price</h4>
+                        <h5 className='pl-3 text-[#9f9f9f]'> Includes all fees, before taxes</h5>
+                    </div>
+                    <div>
+                        <input type="radio" />
+                    </div>
+                </main>
+            </section>
             <HotelLists />
         </Wrapper>
     )

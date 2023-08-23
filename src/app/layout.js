@@ -1,4 +1,6 @@
 import './globals.css'
+import Navbar from "./Components/Navbar/Navbar";
+// import Footer from "./Components/Footer/Footer";
 
 export const metadata = {
     title: 'Airbnb-Next',
@@ -13,7 +15,11 @@ export default function RootLayout({ children }) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Nunito:wght@200&family=Oswald:wght@200&family=Poppins:wght@300;400;500;600&family=Roboto:wght@300&display=swap" rel="stylesheet"/>
             </head>
-            <body>{children}</body>
+            <body>
+                <Navbar />
+                    {children}
+			    {/* <Footer />  */}
+            </body>
         </html>
     )
 }

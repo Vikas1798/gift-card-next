@@ -9,6 +9,7 @@ import { FiGlobe } from "react-icons/fi";
 import { TbMenu2 } from "react-icons/tb";
 import { RiAccountCircleFill } from "react-icons/ri";
 import SearchTabs from './SearchTabs';
+import { FiSearch } from "react-icons/fi";
 
 
 const Navbar = () => {
@@ -131,23 +132,55 @@ const Navbar = () => {
                 </Wrapper>
             </header>
             {
-                // state?.openSearchBar &&
-                // <div className='w-full h-[50px] md:h-[80px] bg-[#ffffff] flex items-center justify-center border-b-2 border-gray-200' onClick={() => handleSearch()}> 
-                //     hede 
-                // </div>
                 state?.openSearchBar &&
-                <div className='w-full h-[50px] md:h-[80px] bg-[#ffffff] absolute z-20 flex items-center justify-center' onClick={() => handleSearch()}>
-                    <section>
-                        {
-                            activeIndex === 1 && <div> hello one </div>
-                        }
-                        {
-                            activeIndex === 2 && <div> hello two </div>
-                        }
-                        {
-                            activeIndex === 3 && <div> hello three </div>
-                        }
+                <div className='w-full h-[50px] md:h-[80px] bg-[#ffffff] absolute z-20 hidden lg:flex items-center justify-center' >
+                    <section className='w-[50%] '>
+                        <main className='grid grid-cols-3 gap-1 border  border-gray-300 rounded-full'>
+                            <section className=' flex items-center justify-start'>
+                                <div className='w-full px-[30px] py-[8px]  hover:bg-gray-100 hover:rounded-full cursor-pointer'>
+                                    <h1 className='text-[14px] font-bold'>Where</h1>
+                                    <p className='text-[12px] text-[#717171]'>Search destinations</p>
+                                </div>
+                            </section>
+                            {
+                                activeIndex === 1 &&
+                                <section className='grid grid-cols-2 '>
+                                    {/* <div className='h-[100%] w-[2px] bg-gray-400'>|</div> */}
 
+                                    <main className=' px-[20px] py-[8px]  hover:bg-gray-100 hover:rounded-full cursor-pointer'>
+                                        <h1 className='text-[14px] font-bold'> Check in</h1>
+                                        <p className='text-[12px] text-[#717171]'>Add dates</p>
+                                    </main>
+                                    {/* <div className='h-[50%] w-[1px] bg-gray-300'></div> */}
+                                    <main className='px-[20px] py-[8px]  hover:bg-gray-100 hover:rounded-full cursor-pointer'>
+                                        <h1 className='text-[14px] font-bold'>Check out</h1>
+                                        <p className='text-[12px] text-[#717171]'>Add dates</p>
+                                    </main>
+                                    {/* <div className='h-[50%] w-[1px] bg-gray-300'></div> */}
+                                </section>
+                            }
+                            {
+                                activeIndex === 2 &&
+                                <section className='grid grid-cols-1'>
+                                    <main className=' px-[20px] py-[8px]  hover:bg-gray-100 hover:rounded-full cursor-pointer'>
+                                        <h1 className='text-[14px] font-bold'> Date</h1>
+                                        <p className='text-[12px] text-[#717171]'>Add dates</p>
+                                    </main>
+
+                                </section>
+                            }
+                            <section className=' flex items-center justify-start'>
+                                <div className=' flex items-center justify-between w-full px-[12px] py-[8px]  hover:bg-gray-200 hover:rounded-full cursor-pointer'>
+                                    <div className='pl-[8px]'>
+                                        <h1 className='text-[14px] font-bold'>Who</h1>
+                                        <p className='text-[12px] text-[#717171]'>Add guest</p>
+                                    </div>
+                                    <figure className='p-2 bg-[#ff3853] rounded-full cursor-pointer hover:shadow-lg' onClick={() => handleSearch()}>
+                                        <FiSearch size={14} className='text-white' />
+                                    </figure>
+                                </div>
+                            </section>
+                        </main>
                     </section>
                 </div>
             }

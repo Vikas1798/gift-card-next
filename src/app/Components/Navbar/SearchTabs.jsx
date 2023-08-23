@@ -1,8 +1,7 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 
 const SearchTabs = ({ handleTabs, activeIndex }) => {
-
     const tabs = [
         {
             tabName: 'Stays',
@@ -13,12 +12,7 @@ const SearchTabs = ({ handleTabs, activeIndex }) => {
             tabName: 'Experiences',
             keyName: 'experiences',
             index: 2
-        },
-        {
-            tabName: 'Online Experiences',
-            keyName: 'onlineExperiences',
-            index: 3
-        },
+        }
     ]
     return (
         <>
@@ -30,6 +24,9 @@ const SearchTabs = ({ handleTabs, activeIndex }) => {
                         </p>
                     ))
                 }
+                <p onClick={() => alert('Coming Soon...!')} className='mx-3 cursor-pointer text-black font-small font-bold border-b-white border-b-2  hover:text-gray-400 hover:border-b-2 hover:border-gray-300'>
+                    Online Experiences
+                </p>
             </section>
         </>
     )

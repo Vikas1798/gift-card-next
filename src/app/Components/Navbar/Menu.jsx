@@ -6,7 +6,7 @@ const Menu = ({ handleSearch }) => {
     return (
         <section className='hidden lg:flex items-center justify-between  shadow  rounded-full px-[15px] border'>
             <main className='cursor-pointer text-black font-small  px-4'>
-                <p className='font-bold' onClick={() => handleSearch()}>
+                <p className='font-bold' >
                     Anywhere
                 </p>
             </main>
@@ -22,7 +22,7 @@ const Menu = ({ handleSearch }) => {
                     Add guests
                 </p>
             </main>
-            <figure className='p-2 bg-[#ff3853] rounded-full cursor-pointer hover:shadow-lg'>
+            <figure className='p-2 bg-[#ff3853] rounded-full cursor-pointer hover:shadow-lg' onClick={() => handleSearch()}>
                 <FiSearch size={14} className='text-white' />
             </figure>
         </section>
